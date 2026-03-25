@@ -51,6 +51,8 @@ let swiper = new Swiper(".discover__container", {
     },
 })
 
+
+
 /*==================== VIDEO ====================*/
 const videoFile = document.getElementById('video-file'),
       videoButton = document.getElementById('video-button'),
@@ -172,3 +174,19 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+/*=============== BOOKING FORM SAVE ===============*/
+document.getElementById("bookingForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        destination: document.getElementById("destination").value,
+        date: document.getElementById("date").value,
+        persons: document.getElementById("persons").value
+    };
+
+    localStorage.setItem("travelBooking", JSON.stringify(data));
+
+    alert("Your trip has been booked successfully!");
+});
